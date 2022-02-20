@@ -1,15 +1,18 @@
-package com.zghurska.projects.homework.homework3;
+package com.zghurska.projects.homework.homework5;
 
-public class Journey {
+public class JourneyLoop {
 
     public static void main(String[] args) {
         int fullCost = 0;
         int ticketPrice = 100;
         int quantityPassengers = 40;
         String travelDirection = "Tokyo";
-//        int numberTickets = 43;
-        int numberTickets = 40;
-//       int numberTickets = 38;
+//      int numberTickets = 43;
+        int numberTickets = 0;
+//      int numberTickets = 38;
+        int accountClients = 5000;
+        int accountAgency = 0;
+        int orderTickets = 0;
 
         greetings();
 
@@ -32,8 +35,26 @@ public class Journey {
 
         int infoTickets = getInfoTickets( tickets, quantityPassengers, numberTickets);
         System.out.println(infoTickets);
-    }
 
+        int fullCostOneTickets = 125;
+      getTransactionMoney(accountAgency,accountClients,fullCostOneTickets,numberTickets);
+    }
+    public static void greetings() {
+        System.out.println("Laddies and Gentlemen welcome aboard Sweet Airlines!");
+        System.out.println("We are glad to see you on the board");
+    }
+    public static int getFullPriceFly (int additionalExpenses, int fullCost){
+        int fullPriceFly = additionalExpenses + fullCost;
+        return fullPriceFly;
+    }
+    public static int getExpenses (int expenses, int quantityPassengers){
+        int fullExpenses = expenses * quantityPassengers;
+        return fullExpenses;
+    }
+    public static int getFullCost(int ticketPrice, int quantityPassengers){
+        int fullCost = ticketPrice * quantityPassengers;
+        return fullCost;
+    }
     public static int getNumberTickets(int quantityPassengers, int numberTickets){
         int controlTickets = 0;
         if(quantityPassengers < numberTickets){
@@ -59,23 +80,20 @@ public class Journey {
         }
         return tickets;
     }
-    public static int getFullCost(int ticketPrice, int quantityPassengers){
-        int fullCost = ticketPrice * quantityPassengers;
-        return fullCost;
-    }
-
-    public static int getExpenses (int expenses, int quantityPassengers){
-        int fullExpenses = expenses * quantityPassengers;
-        return fullExpenses;
-    }
-
-    public static int getFullPriceFly (int additionalExpenses, int fullCost){
-        int fullPriceFly = additionalExpenses + fullCost;
-        return fullPriceFly;
-    }
-
-    public static void greetings() {
-        System.out.println("Laddies and Gentlemen welcome aboard Sweet Airlines!");
-        System.out.println("We are glad to see you on the board");
+    public static void getTransactionMoney(int accountAgency, int accountClients,int fullCostOneTickets ,int numberTickets ) {
+        for (int i = 0; numberTickets < 21; numberTickets++) {
+            if (numberTickets < 21) {
+                int moneyClients = accountClients - fullCostOneTickets;
+                int buyTickets = numberTickets;
+                int restClients = moneyClients - (buyTickets * fullCostOneTickets);
+                int restAgency = accountAgency + fullCostOneTickets * buyTickets;
+                System.out.println("Your rest money - " + restClients);
+                System.out.println("Rest tickets on the Fly - " + buyTickets);
+                System.out.println("Count money Agency - " + restAgency);
+            } else {
+                break;
+            }
+            System.out.println("bye!");
+        }
     }
 }

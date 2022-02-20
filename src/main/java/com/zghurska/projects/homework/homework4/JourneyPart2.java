@@ -1,6 +1,6 @@
-package com.zghurska.projects.homework.homework3;
+package com.zghurska.projects.homework.homework4;
 
-public class Journey {
+public class JourneyPart2 {
 
     public static void main(String[] args) {
         int fullCost = 0;
