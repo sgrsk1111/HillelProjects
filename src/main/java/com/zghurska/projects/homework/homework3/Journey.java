@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Journey {
 
-    private static int ticketChoosePassengers;
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int ticketPrice = 100;
