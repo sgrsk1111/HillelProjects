@@ -1,77 +1,97 @@
 package com.zghurska.projects.homework.homework3;
 
+import java.util.Scanner;
+
 public class Journey {
 
+    private static int ticketChoosePassengers;
+
     public static void main(String[] args) {
-        int fullCost = 0;
+        Scanner scanner = new Scanner(System.in);
         int ticketPrice = 100;
+        int tickets = 0;
         int quantityPassengers = 40;
-        String travelDirection = "Tokyo";
-//      int numberTickets = 43;
+        String directionOne = "Tokyo";
+        String directionTwo = "Rome";
+        String directionThree = "Stambul";
+        String directionFour = "Los-Angeles";
         int numberTickets = 0;
-//      int numberTickets = 38;
-        int accountClients = 5000;
-        int accountAgency = 0;
-        int orderTickets = 0;
+        int accountClients = 0;
+        int ticketsOne = 130;
+        int ticketsTwo = 110;
+        int ticketsThree = 115;
+        int ticketsFour = 150;
+        String direction = null;
 
         greetings();
 
-        System.out.println("Price ticket " + ticketPrice );
-        System.out.println("Quantity passengers " + quantityPassengers);
-        System.out.println("Direction travel " + travelDirection);
+        System.out.println("How can I call you?");
+        String name = scanner.next();
+        System.out.println("Please "+name+", choose direction: 1-Tokyo, 2-Rome, 3-Stambul, 4-Los-Angeles, 0-Exit");
 
-        fullCost = getFullCost(ticketPrice,quantityPassengers);
-        System.out.println("Full fly cost  " + fullCost);
-
-        int expenses = 25;
-        int additionalExpenses = getExpenses(expenses,quantityPassengers);
-        System.out.println("Full additional expenses passengers " + additionalExpenses);
-
-        int fullPriceFly=  getFullPriceFly(additionalExpenses, fullCost);
-        System.out.println("Full price to Tokyo - " + fullPriceFly);
-
-        int tickets = getNumberTickets(quantityPassengers, numberTickets);
-        System.out.println(tickets);
+       int userInfo = getUserInfo(scanner);
+        switch (userInfo){
+            case 1:
+                direction = directionOne;
+                ticketPrice = ticketsOne;
+                System.out.println("Price one ticket = "+ticketPrice);
+                break;
+            case 2:
+                direction = directionTwo;
+                ticketPrice = ticketsTwo;
+                System.out.println("Price one ticket = "+ticketPrice);
+                break;
+            case 3:
+                direction = directionThree;
+                ticketPrice = ticketsThree;
+                System.out.println("Price one ticket = "+ticketPrice);
+                break;
+            case 4:
+                direction = directionFour;
+                ticketPrice = ticketsFour;
+                System.out.println("Price one ticket = "+ticketPrice);
+                break;
+            case 0:
+                System.out.println("Thanks!Bye!");
+                System.exit(0);
+            default:
+                System.out.println("Input correct info");
+                System.exit(0);
+        }
 
         int infoTickets = getInfoTickets( tickets, quantityPassengers, numberTickets);
-        System.out.println(infoTickets);
+        System.out.println("Available number of tickets to purchase - "+infoTickets);
 
-        int fullCostOneTickets = 125;
-        getTransactionMoney(accountAgency,accountClients,fullCostOneTickets,numberTickets);
+        System.out.println("Please, tell your rest..");
+        int walletClients = getUserInfo(scanner);
+
+        System.out.println("How many passengers want buy tickets?");
+        int ticketsChoosePassengers = getUserInfo(scanner);
+        if (walletClients>ticketPrice){
+        getNumberTickets(ticketsChoosePassengers);
+        TransactionMoney(walletClients, ticketPrice, userInfo, ticketsChoosePassengers);
+        } else{
+            System.out.println("Sorry, but enough money");
+        }
+        scanner.close();
     }
     public static void greetings() {
         System.out.println("Laddies and Gentlemen welcome aboard Sweet Airlines!");
         System.out.println("We are glad to see you on the board");
     }
-    public static int getFullPriceFly (int additionalExpenses, int fullCost){
-        int fullPriceFly = additionalExpenses + fullCost;
-        return fullPriceFly;
-    }
-    public static int getExpenses (int expenses, int quantityPassengers){
-        int fullExpenses = expenses * quantityPassengers;
-        return fullExpenses;
-    }
-    public static int getFullCost(int ticketPrice, int quantityPassengers){
-        int fullCost = ticketPrice * quantityPassengers;
-        return fullCost;
-    }
-    public static int getNumberTickets(int quantityPassengers, int numberTickets){
-        int controlTickets = 0;
-        if(quantityPassengers < numberTickets){
-            controlTickets = 1;
-        }
-        else if(quantityPassengers == numberTickets){
-            controlTickets = 0;
+    public static int getNumberTickets(int ticketChoosePassengers){
+        int ticketsNumber = 40;
+        if(ticketChoosePassengers < ticketsNumber){
+            System.out.println("Nice!");
         }
         else{
-            controlTickets = -1;
+            System.out.println("Sorry, but enough tickets");
         }
-        return controlTickets;
+        return ticketChoosePassengers;
     }
     public static int getInfoTickets(int tickets, int quantityPassengers, int numberTickets){
         if (tickets<=0) {
             tickets = quantityPassengers - numberTickets;
-            System.out.println("Available number of tickets to purchase - " + tickets);
         }
         else{
             tickets = quantityPassengers - numberTickets;
@@ -80,20 +100,22 @@ public class Journey {
         }
         return tickets;
     }
-    public static void getTransactionMoney(int accountAgency, int accountClients,int fullCostOneTickets ,int numberTickets ) {
-        for (int i = 0; numberTickets < 21; numberTickets++) {
-            if (numberTickets < 21) {
-                int moneyClients = accountClients - fullCostOneTickets;
-                int buyTickets = numberTickets;
-                int restClients = moneyClients - (buyTickets * fullCostOneTickets);
-                int restAgency = accountAgency + fullCostOneTickets * buyTickets;
-                System.out.println("Your rest money - " + restClients);
-                System.out.println("Rest tickets on the Fly - " + buyTickets);
-                System.out.println("Count money Agency - " + restAgency);
+    public static void TransactionMoney( int walletClients,int ticketPrice ,int userInfo,int ticketsChoosePassengers) {
+        for (int i = 0; walletClients>ticketPrice; userInfo++) {
+            if (userInfo==ticketsChoosePassengers){
+                int buyTickets = userInfo;
+                int moneyClients = walletClients - (ticketPrice*buyTickets);
+                System.out.println("Your rest money - " + moneyClients);
+                System.out.println("You buy- " + buyTickets+" tickets");
             } else {
                 break;
             }
-            System.out.println("bye!");
         }
+    }
+    public static int getUserInfo(Scanner scanner){
+        if(scanner.hasNextInt()){
+            return scanner.nextInt();
+        }
+        return -1;
     }
 }
