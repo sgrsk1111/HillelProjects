@@ -13,7 +13,7 @@ public class ArraysPart3 {
         printArray(arr);
         System.out.println();
 
-        for (int i =0; i>=0; i++) {
+        while ( true) {
             fillArray(arr);
             fillDiagonals(arr);
             fillLeftTriangle(arr);
