@@ -13,8 +13,8 @@ public class StringMethodTwo {
         String text = scanner.next();
 
         //Task 3
-        boolean result1 = getInfoPalindrome(text);
-        System.out.println(result1);
+//        boolean result1 = getInfoPalindrome(text);
+//        System.out.println(result1);
 
         //Task 4
         boolean result2 = getInfoConsistString(text);
@@ -32,12 +32,13 @@ public class StringMethodTwo {
     }
 
     public static boolean getInfoConsistString(String text) {
-        Pattern p = Pattern.compile("[0-9]");
+        Pattern p = Pattern.compile("[a-zA-Z]");
         Matcher m = p.matcher(text);
         if (text.length() == 0)
             return false;
         if (m.find())
-            return true;
-        return false;
+            return false;
+        return true;
+        // \p{Punct}
     }
 }
