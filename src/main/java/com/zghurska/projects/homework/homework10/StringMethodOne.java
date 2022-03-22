@@ -3,13 +3,12 @@ package com.zghurska.projects.homework.homework10;
 import java.util.Arrays;
 import java.util.Locale;
 
-public class StringMethod {
+public class StringMethodOne {
 
     public static void main(String[] args) {
-
 //         Task 1
         String test = "Was it a car or a cat I saw?";
-        String[] arr = test.split(" ");
+        String[] arr = test.split("\\s+");
         String testTwo = "Java";
         String testThree = "was it a car or a cat I saw?";
         String testFive = " Java";
@@ -40,6 +39,5 @@ public class StringMethod {
         String testFour = "Was it a car or a %s I saw?";
         testFour = String.format(testFour, name);
         System.out.println(testFour);
-
     }
 }
