@@ -2,17 +2,16 @@ package com.zghurska.projects.homework.homework12;
 
 public class Person {
 
-    //1. Создать класс Person который описывает человека, с полями: имя, фамилия, возраст, вес, рост.
-    // Создать один или несколько конструкторов которые гарантирует что у каждого есть имя и фамилия.
-    private String name;
-    private String surname;
+
+    private final String name;
+    private final String surname;
     private int age;
     private double weight;
     private int height;
 
-    public Person(String yourName, String yourSurname) {
-        name = yourName;
-        surname = yourSurname;
+    public Person(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
     }
 
     public Person(String name, String surname, int age, double weight, int height) {

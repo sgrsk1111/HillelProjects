@@ -1,8 +1,14 @@
 package com.zghurska.projects.homework.homework12;
 
+import java.util.List;
+
 public class Main {
+
     public static void main(String[] args) {
-        Person person = new Person("Alex", "Kit");
-        System.out.println(person);
+        List<Person> people = PersonFactory.generatePerson();
+        for (Person person : people) {
+            System.out.println(person);
+        }
+        PersonFactory.generatePerson();
     }
 }
