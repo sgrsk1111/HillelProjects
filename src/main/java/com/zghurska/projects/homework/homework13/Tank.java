@@ -1,14 +1,18 @@
 package com.zghurska.projects.homework.homework13;
 
-public class Fence extends Unit {
+public class Tank extends MobileUnit {
 
-    public Fence(int x, int y) {
+    public Tank(int x, int y) {
         super(x, y);
+    }
+
+    public void reload() {
+        System.out.println("Reload");
     }
 
     @Override
     public String toString() {
-        return "Fence{" +
+        return "Tank{" +
                 "x=" + x +
                 ", y=" + y +
                 ", immortal=" + immortal +
