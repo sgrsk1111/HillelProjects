@@ -6,7 +6,6 @@ import com.zghurska.projects.homework.professions.Driver;
 public class SportCar extends Car {
     private final double speed;
 
-
     public SportCar(String brandAuto, double weight, Driver driver, Engine engine, double speed) {
         super(brandAuto, weight, driver, engine);
         this.speed = speed;

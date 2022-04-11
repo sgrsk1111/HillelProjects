@@ -10,16 +10,13 @@ public class Lorry extends Car {
     public Lorry(String brandAuto, double weight, Driver driver, Engine engine, int carrying) {
         super(brandAuto, weight, driver, engine);
         this.carrying = carrying;
-        this.setClassAuto("Lorry");
+        setClassAuto("Lorry");
     }
 
     @Override
     public String toString() {
         return "Lorry{" +
-                ", classAuto='" + classAuto + '\'' +
-                ", weight=" + weight +
-                ", driver=" + driver +
-                ", engine=" + engine +
+                super.toString() +
                 ", carrying=" + carrying +
                 '}';
     }
