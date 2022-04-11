@@ -1,15 +1,53 @@
 package com.zghurska.projects.homework.vehicles;
 
-//Класс Car содержит поля - марка автомобиля, класс автомобиля, вес, водитель типа Driver, мотор типа Engine.
-// Методы start(), stop(), turnRight(), turnLeft(), которые выводят на печать: "Поехали",
-// "Останавливаемся", "Поворот направо" или "Поворот налево". А также метод toString(),
-// который выводит полную информацию об автомобиле, ее водителе и моторе.
+
+import com.zghurska.projects.homework.details.Engine;
+import com.zghurska.projects.homework.professions.Driver;
 
 public class Car {
 
-    public String brandAuto;
-    public String classAuto;
-    public double weight;
+    protected final String brandAuto;
+    protected String classAuto;
+    protected final double weight;
+    protected final Driver driver;
+    protected final Engine engine;
 
+    public Car(String brandAuto, double weight, Driver driver, Engine engine) {
+        this.brandAuto = brandAuto;
+        this.classAuto = classAuto;
+        this.weight = weight;
+        this.driver = driver;
+        this.engine = engine;
+    }
 
+    public void setClassAuto(String classAuto) {
+        this.classAuto = classAuto;
+    }
+
+    public void start() {
+        System.out.println("Поехали");
+    }
+
+    public void stop() {
+        System.out.println("Останавливаемся");
+    }
+
+    public void turnRight() {
+        System.out.println("Поворот направо");
+    }
+
+    public void turnLeft() {
+        System.out.println("Поворот налево");
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "brandAuto='" + brandAuto + '\'' +
+                ", classAuto='" + classAuto + '\'' +
+                ", weight=" + weight +
+                ", driver=" + driver +
+                ", engine=" + engine +
+                '}';
+    }
 }
