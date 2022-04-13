@@ -19,6 +19,10 @@ public class PersonFactory {
     private static final int MIN_HEIGHT = 150;
 
     public static List<Person> generatePerson() {
+        //Set<String> set = new HashSet<>(перс);
+        //перс.clear();
+        //перс.addAll(set);
+
         List<Person> result = new ArrayList<>();
         for (int i = 0; i < PERSON; i++) {
             Person person = generatePersonRandom();

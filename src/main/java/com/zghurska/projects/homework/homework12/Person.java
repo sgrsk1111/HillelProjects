@@ -1,7 +1,8 @@
 package com.zghurska.projects.homework.homework12;
 
-public class Person {
+import java.util.Objects;
 
+public class Person {
 
     private final String name;
     private final String surname;
@@ -41,6 +42,7 @@ public class Person {
     public int getHeight() {
         return height;
     }
+
 
     @Override
     public String toString() {
