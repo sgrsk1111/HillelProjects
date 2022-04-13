@@ -43,6 +43,18 @@ public class Person {
         return height;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(name, person.name) && Objects.equals(surname, person.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname);
+    }
 
     @Override
     public String toString() {

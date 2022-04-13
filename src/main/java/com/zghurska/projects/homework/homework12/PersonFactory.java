@@ -1,8 +1,6 @@
 package com.zghurska.projects.homework.homework12;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class PersonFactory {
 
@@ -18,10 +16,16 @@ public class PersonFactory {
     private static final int MAX_HEIGHT = 200;
     private static final int MIN_HEIGHT = 150;
 
+    public static List<Person> generateUniquePerson() {
+
+        List<Person> list = generatePerson();
+        Set<Person> result = new HashSet<>(list);
+        list.clear();
+        list.addAll(result);
+        return list;
+    }
+
     public static List<Person> generatePerson() {
-        //Set<String> set = new HashSet<>(перс);
-        //перс.clear();
-        //перс.addAll(set);
 
         List<Person> result = new ArrayList<>();
         for (int i = 0; i < PERSON; i++) {
